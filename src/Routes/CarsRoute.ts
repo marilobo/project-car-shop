@@ -8,4 +8,14 @@ router.post(
   (req: Request, res: Response) => new CarController(req, res).createCar(),
 );
 
+router.get(
+  '/',
+  (req: Request, res: Response) => new CarController(req, res).getAllCars(),
+);
+
+router.get(
+  '/:id',
+  (req: Request, res: Response) => new CarController(req, res).getCarById(),
+);
+
 export default router;

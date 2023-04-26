@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import CarService from '../Services/CarService';
 import ICar from '../Interfaces/ICar';
-import { CREATED, INTERNAL_SERVER_ERROR } from '../Utils/httpStatusCode';
+import { CREATED, INTERNAL_SERVER_ERROR,
+  NOT_FOUND, OK, UNPROCESSABLE_CONTENT } from '../Utils/httpStatusCode';
 
 class CarController {
   private req: Request;
@@ -30,6 +31,24 @@ class CarController {
       return this.res.status(CREATED).json(newCar);
     } catch (error) {
       return this.res.status(INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  public async getAllCars() {
+    const cars = await this.service.getAllCars();
+    return this.res.status(OK).json(cars);
+  }
+
+  public async getCarById() {
+    const { id } = this.req.params;
+    try {
+      const car = await this.service.getCarById(id);
+      if (!car) {
+        return this.res.status(NOT_FOUND).json({ message: 'Car not found' });
+      }
+      return this.res.status(OK).json(car);
+    } catch (_error) {
+      return this.res.status(UNPROCESSABLE_CONTENT).json({ message: 'Invalid mongo id' });
     }
   }
 }

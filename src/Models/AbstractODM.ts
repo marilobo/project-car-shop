@@ -19,6 +19,17 @@ abstract class AbstractODM<T> {
   public async create(veiculo: T): Promise<T> {
     return this.model.create({ ...veiculo });
   }
+
+  public async getAll(): Promise<T[]> {
+    return this.model.find();
+  }
+
+  public async getById(id: string): Promise<T | null> {
+    if (!id) {
+      return null;
+    }
+    return this.model.findById(id);
+  }
 }
 
 export default AbstractODM;
