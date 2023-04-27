@@ -11,9 +11,15 @@ class MotorCycleService {
   }
 
   private newMotorcycleModel = new MotorcycleODM();
+
   public async createMoto(moto: IMotorcycle) {
     const createdNewMoto = await this.newMotorcycleModel.create(moto);
     return this.createMotoDomain(createdNewMoto);
+  }
+
+  public async getAllMotorcycles() {
+    const motos = await this.newMotorcycleModel.getAll();
+    return motos.map((moto) => new Motorcycle(moto));
   }
 }
 

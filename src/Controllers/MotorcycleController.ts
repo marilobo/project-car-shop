@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorCycleService from '../Services/MotorcycleService';
-import { CREATED, INTERNAL_SERVER_ERROR } from '../Utils/httpStatusCode';
+import { CREATED, INTERNAL_SERVER_ERROR, OK } from '../Utils/httpStatusCode';
 
 class MotorcycleController {
   private req: Request;
@@ -31,6 +31,11 @@ class MotorcycleController {
     } catch (error) {
       return this.res.status(INTERNAL_SERVER_ERROR);
     }
+  }
+
+  public async getAllMotorcycles() {
+    const motos = await this.service.getAllMotorcycles();
+    return this.res.status(OK).json(motos);
   }
 }
 
