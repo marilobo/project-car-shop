@@ -28,6 +28,17 @@ class CarService {
     }
     return new Car(car);
   }
+
+  public async updateCarById(id: string, car: ICar) {
+    if (!car || !id) {
+      return null;
+    }
+    const updatedCar = await this.newCarModel.updateById(id, car);
+    if (updatedCar) {
+      return new Car(updatedCar);
+    }
+    return null;
+  }
 }
 
 export default CarService;

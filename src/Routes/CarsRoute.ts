@@ -18,4 +18,9 @@ router.get(
   (req: Request, res: Response) => new CarController(req, res).getCarById(),
 );
 
+router.put(
+  '/:id',
+  (req: Request, res: Response) => new CarController(req, res).updateCarById(),
+);
+
 export default router;

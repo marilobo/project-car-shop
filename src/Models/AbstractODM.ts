@@ -30,6 +30,11 @@ abstract class AbstractODM<T> {
     }
     return this.model.findById(id);
   }
+
+  public async updateById(id: string, vehicle: Partial<T>): Promise<T | null> {
+    const updatedVehicle = await this.model.findByIdAndUpdate({ _id: id }, { ...vehicle });
+    return updatedVehicle;
+  }
 }
 
 export default AbstractODM;
