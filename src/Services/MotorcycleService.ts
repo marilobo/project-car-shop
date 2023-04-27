@@ -21,6 +21,14 @@ class MotorCycleService {
     const motos = await this.newMotorcycleModel.getAll();
     return motos.map((moto) => new Motorcycle(moto));
   }
+
+  public async getMotoById(id: string) {
+    const moto = await this.newMotorcycleModel.getById(id);
+    if (!moto) {
+      return null;
+    }
+    return new Motorcycle(moto);
+  }
 }
 
 export default MotorCycleService;
