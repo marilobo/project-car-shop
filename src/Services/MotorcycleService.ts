@@ -29,6 +29,17 @@ class MotorCycleService {
     }
     return new Motorcycle(moto);
   }
+
+  public async updateMotoById(id: string, moto: IMotorcycle) {
+    if (!moto || !id) {
+      return null;
+    }
+    const updatedMoto = await this.newMotorcycleModel.updateById(id, moto);
+    if (updatedMoto) {
+      return new Motorcycle(updatedMoto);
+    }
+    return null;
+  }
 }
 
 export default MotorCycleService;
