@@ -1,13 +1,18 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Car Shop
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Este é um projeto desenvolvido durante o módulo de Back-end do curso de Desenvolvimento Web da Trybe. As pastas e arquivos dentro de /src foram desenvolvidos por mim, bem como os testes que se encontram em /tests/unit/services.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## O que foi desenvolvido
+
+Neste projeto, foram aplicados os princípios de Programação Orientada a Objetos (POO) para a construção de uma API com CRUD para gerenciar uma concessionária de veículos. Isso foi feito utilizando o banco de dados MongoDB através do framework do Mongoose.
+
+<details>
+<summary><strong>Instalação</strong></summary><br />
+
+1. Clone o repositório
+  - Use o comando: `git clone git@github.com:marilobo/project-car-shop.git`.
+  - Entre na pasta do repositório que você acabou de clonar.
+2. Instale as dependências
+ - `npm install`.
+3. Para rodar o projeto sem o Docker, obrigatoriamente você deve ter o node instalado em seu computador.
+</details>
